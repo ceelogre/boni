@@ -1,0 +1,123 @@
+html {
+  --primary-color: #7D30DF;
+}
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: 'Lexend Deca';
+  font-size: 16px;
+  line-height: 1.5;
+  background: #f0f1f1;
+  color: #333;
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+}
+.header-wrapper {
+  width: 98%;
+  margin: auto;
+  padding: 20px 0;
+  display: flex;
+}
+.logo {
+  font-family: 'signpainter';
+  font-style: italic;
+  font-size: 36px;
+  line-height: 35px;
+  color: #7d30df;
+  width: 70px;
+  display: inline-block;
+}
+/* Move the nav next to logo */
+.nav-wrapper {
+  width: 100%;
+  margin: auto;
+  padding: 0 20px;
+  margin-left: 1100px;
+}
+ ul {
+   list-style-type: none;
+ }
+ ul li {
+   display: inline;
+ }
+
+ ul li a {
+   text-decoration: none;
+   color: #333;
+   padding: 10px;
+   font-size: 16px;
+ }
+
+ /* Center the jumbotron card */
+ .jumbotron {
+   width: 98%;
+   margin: 10px auto;
+   padding: 40px 0;
+   border-radius: 5px;
+   box-shadow: 0 0 10px rgba(0,0,0,0.1);
+   text-align: center;
+ }
+
+ /* Center the form card */
+ .form-card {
+   width: 98%;
+   margin: auto;
+   padding: 20px 0;
+   border-radius: 5px;
+   box-shadow: 0 0 10px rgba(0,0,0,0.1);
+   text-align: center;
+ }
+
+ .form-group {
+   display: block;
+ }
+input[type="text"], input[type="email"] {
+  width: 280px;
+}
+text-area {
+  resize: vertical;
+}
+
+label {
+  padding: 20px;
+}
+ .form-control{
+   padding: 10px;
+   border: 1px solid var(--primary-color);
+   border-radius: 5px;
+   margin: 5px 0;
+ }
+ 
+ .btn-primary {
+   background: var(--primary-color);
+   color: whitesmoke;
+   width: 280px;
+ }
+ footer {
+   text-align: center;
+ }
+ .footer-wrapper {
+   width: 98%;
+   margin: auto;
+   font-size: smaller;
+ }
+
+  /*Add media queries for tablet and mobile*/
+  @media screen and (max-width: 992px) {
+    .nav-wrapper {
+      margin-left: 500px;
+    }
+  }
+ @media screen and (max-width: 768px) {
+   body {
+     max-width: 768px;
+   }
+   .nav-wrapper {
+     margin-left: 120px;
+   }
+  }
