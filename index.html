@@ -27,13 +27,13 @@
     <main>
       <section class="jumbotron">
         <h2>Translations by humans</h2>
-        <p>There will be a time when translations will be done by robots. Until then, we can only rely on humans for accurate translations.</p>
+        <p>There will be a time when translations will be done by robots. Until then, we can only rely on humans for accurate translations</p>
       </section>
       <div class="form-card">
-      <p>Leave your text here and you will get a translation in an hour.</p>
-        <form id='form' action="/" method="post">
+      <p>Leave your text here and you will get a translation in an hour</p>
+        <form onsubmit="return createTranslationTicket(event)" id='form' method="post">
           <div class="form-group">
-            <input type="text" class="form-control" name="text" placeholder="What should we call you?" />
+            <input type="text" class="form-control" id="username" placeholder="What should we call you?" />
           </div>
           <div class="form-group">
             <input type="email" class="form-control" name="email" placeholder="Your email address" required/>
@@ -60,5 +60,6 @@
         <p>&copy; 2017 Boni</p>
       </div>
     </footer>
+    <script src="/src/index.js"></script>
 </body>
 </html>
