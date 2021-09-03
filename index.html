@@ -31,7 +31,7 @@
       </section>
       <div class="form-card">
       <p>Leave your text here and you will get a translation in an hour</p>
-        <form onsubmit="return parseForm(event)" id='form' method="post">
+        <form onsubmit="return false " id='form' method="post">
           <div class="form-group">
             <input type="text" class="form-control" id="username" placeholder="What should we call you?" />
           </div>
@@ -60,7 +60,6 @@
         <p>&copy; 2017 Boni</p>
       </div>
     </footer>
-    <script type="module" src="/src/firebase.js"></script>
-    <script type="module" src="/src/index.js"></script>
+    <script src="dist/bundle.js"></script>
 </body>
 </html>
