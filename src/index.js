@@ -1,4 +1,18 @@
-import app from './firebase.js'
+import firebase from 'firebase/compat/app'
+import {getFirestore, collection, addDoc} from 'firebase/firestore'
+  const firebaseConfig = {
+    apiKey: "AIzaSyDqbXOll1QNxBDNgxcghygtgEYlbZcmWF0",
+    authDomain: "boni-a6c2b.firebaseapp.com",
+    databaseURL: "https://boni-a6c2b-default-rtdb.europe-west1.firebasedatabase.app",
+    projectId: "boni-a6c2b",
+    storageBucket: "boni-a6c2b.appspot.com",
+    messagingSenderId: "378373042496",
+    appId: "1:378373042496:web:feceb08a147e18ca5e0aa5"
+  };
+
+  // Initialize Firebase
+  const app = firebase.initializeApp(firebaseConfig);
+
 // Retrieve data from the form and send it to firebase
 const parseForm = (event) => {
   event.preventDefault()
@@ -15,14 +29,16 @@ let translateTo = userForm.elements['language'].value
   }
   createTranslationTicket(ticket)
 }
-const  createTranslationTicket = (ticket) => {
-  let db = app.firestore()
-  db.collection('tickets').add(ticket)
-    .then(
-      docRef => console.info(docRef)
-    )
-    .catch(
-      error => console.error(error)
-    )
+const  createTranslationTicket = async (ticket) => {
+  let db = getFirestore(app)
+
+  try {
+    const docRef = await addDoc(collection(db, "tickets"), ticket);
+    console.log("Document written with ID: ", docRef.id);
+  } catch (e) {
+    console.error("Error adding document: ", e);
+  }
 }
-export default parseForm
+
+const theForm = document.forms[0]
+theForm.addEventListener('submit', parseForm)
