@@ -34,7 +34,21 @@ const  createTranslationTicket = async (ticket) => {
 
   try {
     const docRef = await addDoc(collection(db, "tickets"), ticket);
-    console.log("Document written with ID: ", docRef.id);
+    // Add a modal to show the user that the ticket has been created
+    // and the ticket id
+    let modal = document.createElement('div')
+    modal.classList.add('modal')
+    modal.innerHTML = `
+      <div class="modal-content">
+        <h4>Ticket created</h4>
+        <p>Your ticket id is: ${docRef.id}</p>
+      </div>
+    `
+    document.body.appendChild(modal)
+    // Hide the modal after 5 seconds
+    setTimeout(() => {
+      modal.style.display = 'none'
+    }, 5000)
   } catch (e) {
     console.error("Error adding document: ", e);
   }
