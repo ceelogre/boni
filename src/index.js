@@ -16,6 +16,8 @@ import {getFirestore, collection, addDoc} from 'firebase/firestore'
 // Retrieve data from the form and send it to firebase
 const parseForm = (event) => {
   event.preventDefault()
+  // change the text of the button to sending
+  document.getElementById('form-submit').innerHTML = 'Sending...'
 let userForm = document.forms[0]
 let username = userForm.elements['username'].value
 let email = userForm.elements['email'].value
@@ -45,10 +47,8 @@ const  createTranslationTicket = async (ticket) => {
       </div>
     `
     document.body.appendChild(modal)
-    // Hide the modal after 5 seconds
-    setTimeout(() => {
-      modal.style.display = 'none'
-    }, 5000)
+    document.getElementById('form-submit').innerHTML = 'Send'
+    
   } catch (e) {
     console.error("Error adding document: ", e);
   }
