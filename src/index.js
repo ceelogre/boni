@@ -1,5 +1,7 @@
 import firebase from 'firebase/compat/app'
 import {getFirestore, collection, addDoc} from 'firebase/firestore'
+import './index.css'
+
   const firebaseConfig = {
     apiKey: "AIzaSyDqbXOll1QNxBDNgxcghygtgEYlbZcmWF0",
     authDomain: "boni-a6c2b.firebaseapp.com",
@@ -16,6 +18,7 @@ import {getFirestore, collection, addDoc} from 'firebase/firestore'
 // Retrieve data from the form and send it to firebase
 const parseForm = (event) => {
   event.preventDefault()
+
   // change the text of the button to sending
   document.getElementById('form-submit').innerHTML = 'Sending...'
 let userForm = document.forms[0]
@@ -42,8 +45,16 @@ const  createTranslationTicket = async (ticket) => {
     modal.classList.add('modal')
     modal.innerHTML = `
       <div class="modal-content">
-        <h4>Ticket created</h4>
-        <p>Your ticket id is: ${docRef.id}</p>
+      <div class="modal-header">
+        <h2>Thanks! </h2>
+      <button onclick="document.getElementById('modal').style.display="none" class="btn"><span class="close">&times;</span></button>
+      </div>
+      <div class="modal-body">
+        <p>Sit back! You  should receive an email with your translation within an hour.</p>
+      </div>
+      <div class="modal-footer">
+        <button class="btn-thanks">Okay!</button>
+      </div>
       </div>
     `
     document.body.appendChild(modal)
