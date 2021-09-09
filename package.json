@@ -4,7 +4,7 @@
   "description": "human translation services",
   "main": "index.js",
   "scripts": {
-    "build": "webpack",
+    "build": "webpack --mode=production",
     "dev": "webpack serve",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
