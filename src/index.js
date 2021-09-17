@@ -43,22 +43,30 @@ const  createTranslationTicket = async (ticket) => {
     // and the ticket id
     let modal = document.createElement('div')
     modal.classList.add('modal')
+    modal.setAttribute('id', 'modal')
     modal.innerHTML = `
       <div class="modal-content">
       <div class="modal-header">
         <h2>Thanks! </h2>
-      <button onclick="document.getElementById('modal').style.display="none" class="btn"><span class="close">&times;</span></button>
+      <button onclick="document.body.removeChild(modal)" class="btn"><span class="close">&times;</span></button>
       </div>
       <div class="modal-body">
         <p>Sit back! You  should receive an email with your translation within an hour.</p>
       </div>
       <div class="modal-footer">
-        <button class="btn-thanks">Okay!</button>
+        <button onClick="document.body.removeChild(modal)" class="btn-thanks">Okay!</button>
       </div>
       </div>
     `
     document.body.appendChild(modal)
+
     document.getElementById('form-submit').innerHTML = 'Send'
+    // clear the form
+    document.getElementById('form').reset()
+
+const closeModal = () => {
+  
+}
     
   } catch (e) {
     console.error("Error adding document: ", e);
