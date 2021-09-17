@@ -34,40 +34,20 @@ let translateTo = userForm.elements['language'].value
   }
   createTranslationTicket(ticket)
 }
+
+
+let modal = document.querySelector('.modal')
+
 const  createTranslationTicket = async (ticket) => {
   let db = getFirestore(app)
 
   try {
     const docRef = await addDoc(collection(db, "tickets"), ticket);
-    // Add a modal to show the user that the ticket has been created
-    // and the ticket id
-    let modal = document.createElement('div')
-    modal.classList.add('modal')
-    modal.setAttribute('id', 'modal')
-    modal.innerHTML = `
-      <div class="modal-content">
-      <div class="modal-header">
-        <h2>Thanks! </h2>
-      <button onclick="document.body.removeChild(modal)" class="btn"><span class="close">&times;</span></button>
-      </div>
-      <div class="modal-body">
-        <p>Sit back! You  should receive an email with your translation within an hour.</p>
-      </div>
-      <div class="modal-footer">
-        <button onClick="document.body.removeChild(modal)" class="btn-thanks">Okay!</button>
-      </div>
-      </div>
-    `
-    document.body.appendChild(modal)
-
+    // display a modal to show the user that the ticket has been created
+    modal.classList.toggle('closed')
     document.getElementById('form-submit').innerHTML = 'Send'
     // clear the form
     document.getElementById('form').reset()
-
-const closeModal = () => {
-  
-}
-    
   } catch (e) {
     console.error("Error adding document: ", e);
   }
@@ -75,3 +55,14 @@ const closeModal = () => {
 
 const theForm = document.forms[0]
 theForm.addEventListener('submit', parseForm)
+
+
+let closeBtn = document.querySelector('.close-btn')
+let thanksBtn = document.querySelector('.thanks-btn')
+
+const closeModal = () => {
+modal.classList.add('closed')
+}
+closeBtn.addEventListener('click', closeModal)
+thanksBtn.addEventListener('click', closeModal)
+

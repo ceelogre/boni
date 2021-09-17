@@ -18,10 +18,10 @@ body {
   grid-template-rows: auto 1fr auto;
 }
 .header-wrapper {
-  width: 98%;
-  margin: auto;
-  padding: 20px 0;
+  padding: 20px;
   display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 .logo {
   font-family: 'signpainter';
@@ -34,10 +34,7 @@ body {
 }
 /* Move the nav next to logo */
 .nav-wrapper {
-  width: 100%;
-  margin: auto;
   padding: 0 20px;
-  margin-left: 1100px;
 }
  ul {
    list-style-type: none;
@@ -96,13 +93,15 @@ label {
  .btn {
    padding: 10px;
    border-radius: 5px;
+   /* make background-color the complement of #7d30df*/
+   color: #f6b40d;
  }
  .btn-primary {
    background: var(--primary-color);
    color: whitesmoke;
    width: 280px;
  }
- .btn-thanks {
+ .thanks-btn {
    background: var(--primary-color);
    color: whitesmoke;
    width: 100px;
@@ -130,13 +129,13 @@ label {
    padding-top: 300px;
    border-radius: 5px;
    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+   display: block;
  }
  .modal-content {
    background-color: #fefefe;
    padding: 20px;
    border-radius: 5px;
    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-   width: 40%;
    margin: auto;
  }
  .modal-header {
@@ -145,8 +144,9 @@ label {
    flex: 1;
    padding: 2px 16px;
    /* light white */
-   background-color: #f1f1f1;
+   /*background-color: #f1f1f1; */
    border-radius: 5px;
+  color: var(--primary-color);
  }
  .modal-body {
    padding: 8px 16px;
@@ -154,17 +154,11 @@ label {
  .modal-footer {
    text-align: center;
  }
+ .modal.closed {
+   display: none;
+ }
   /*Add media queries for tablet and mobile*/
   @media screen and (max-width: 992px) {
-    .nav-wrapper {
-      margin-left: 500px;
-    }
   }
  @media screen and (max-width: 768px) {
-   body {
-     max-width: 768px;
-   }
-   .nav-wrapper {
-     margin-left: 120px;
-   }
   }
