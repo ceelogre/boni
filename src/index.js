@@ -1,5 +1,5 @@
 import firebase from 'firebase/compat/app'
-import {getFirestore, collection, addDoc} from 'firebase/firestore'
+import {getFirestore, setDoc, doc} from 'firebase/firestore'
 import './index.css'
 
   const firebaseConfig = {
@@ -42,7 +42,7 @@ const  createTranslationTicket = async (ticket) => {
   let db = getFirestore(app)
 
   try {
-    const docRef = await addDoc(collection(db, "tickets"), ticket);
+    const docRef = await setDoc(doc(db, "tickets", new Date().toJSON()), ticket);
     // display a modal to show the user that the ticket has been created
     modal.classList.toggle('closed')
     document.getElementById('form-submit').innerHTML = 'Send'
