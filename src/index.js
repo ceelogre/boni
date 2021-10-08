@@ -1,6 +1,6 @@
+import './index.css'
 import firebase from 'firebase/compat/app'
 import {getFirestore, setDoc, doc} from 'firebase/firestore'
-import './index.css'
 
   const firebaseConfig = {
     apiKey: "AIzaSyDqbXOll1QNxBDNgxcghygtgEYlbZcmWF0",
