@@ -17,7 +17,7 @@ module.exports = {
       template: './src/index.html',
       favicon: './assets/favicon.ico'
     })
-  ],
+  ].concat(devMode? []: [new MiniCssExtractPlugin()]),
   module: {
     rules: [
       // add css loader
