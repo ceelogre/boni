@@ -15,7 +15,11 @@ module.exports = {
   plugins: [
     new htmlWebpackPlugin({
       template: './src/index.html',
-      favicon: './assets/favicon.ico'
+      favicon: './assets/favicon.ico',
+    }),
+    new htmlWebpackPlugin({
+      template: './src/contact.html',
+      filename: 'contact.html'
     })
   ].concat(devMode? []: [new MiniCssExtractPlugin()]),
   module: {
